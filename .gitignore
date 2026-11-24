@@ -1,0 +1,6 @@
+.vercel
+node_modules
+_test.html
+_frame.html
+.DS_Store
+Thumbs.db

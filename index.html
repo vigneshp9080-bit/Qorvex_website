@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qorvex — AI Automation, Web, Mobile &amp; Cloud Solutions</title>
+  <meta name="description" content="Qorvex builds AI automation, business websites, e-commerce stores, custom software, mobile apps and cloud infrastructure for growing businesses." />
+  <meta name="theme-color" content="#0b0d17" />
+  <meta property="og:image" content="assets/img/qorvex-logo.jpg" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://formsubmit.co" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <!-- Opening animation -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__panel preloader__panel--top"></div>
+    <div class="preloader__panel preloader__panel--bottom"></div>
+    <div class="preloader__content">
+      <svg class="preloader__mark" viewBox="0 0 100 100">
+        <g fill="none" stroke-linecap="round">
+          <path pathLength="1" d="M18.82 32.00A36 36 0 0 1 73.14 22.42" stroke="#fff" stroke-width="10" />
+          <path pathLength="1" d="M37.69 83.83A36 36 0 0 1 14.79 42.52" stroke="#fff" stroke-width="10" />
+          <path pathLength="1" d="M81.79 33.10A36 36 0 0 1 51.26 85.98" stroke="#2ec58f" stroke-width="10" />
+          <path pathLength="1" d="M59.30 30.06A22 22 0 0 1 70.67 57.52" stroke="#fff" stroke-width="5" />
+          <path pathLength="1" d="M61.00 69.05A22 22 0 0 1 30.06 59.30" stroke="#2ec58f" stroke-width="5" />
+          <path pathLength="1" d="M28.01 49.23A22 22 0 0 1 46.18 28.33" stroke="#fff" stroke-width="5" />
+        </g>
+      </svg>
+      <div class="preloader__word">
+        <span>Q</span><span class="logo__o">O</span><span>R</span><span>V</span><span>E</span><span>X</span>
+      </div>
+      <div class="preloader__bar"><i></i></div>
+    </div>
+  </div>
+
+  <!-- Page-wide 3D background, scroll progress and cursor glow -->
+  <canvas class="bg3d" id="bg3d" aria-hidden="true"></canvas>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#home" class="logo" aria-label="Qorvex home">
+        <svg class="logo__mark" viewBox="0 0 100 100" aria-hidden="true">
+          <g fill="none" stroke-linecap="round">
+            <path d="M18.82 32.00A36 36 0 0 1 73.14 22.42" stroke="currentColor" stroke-width="10" />
+            <path d="M37.69 83.83A36 36 0 0 1 14.79 42.52" stroke="currentColor" stroke-width="10" />
+            <path d="M81.79 33.10A36 36 0 0 1 51.26 85.98" stroke="var(--brand)" stroke-width="10" />
+            <path d="M59.30 30.06A22 22 0 0 1 70.67 57.52" stroke="currentColor" stroke-width="5" />
+            <path d="M61.00 69.05A22 22 0 0 1 30.06 59.30" stroke="var(--brand)" stroke-width="5" />
+            <path d="M28.01 49.23A22 22 0 0 1 46.18 28.33" stroke="currentColor" stroke-width="5" />
+          </g>
+        </svg>
+        <span class="logo__text">Q<span class="logo__o">O</span>RVEX</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a href="#services" class="nav__link">Services</a></li>
+          <li><a href="#why" class="nav__link">Why Qorvex</a></li>
+          <li><a href="#process" class="nav__link">Process</a></li>
+          <li><a href="#tech" class="nav__link">Technologies</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn--primary nav__cta">Let's Talk</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="eyebrow intro" style="--d: 0ms">Technology partner for growing businesses</span>
+          <h1 class="hero__title" data-split>
+            We build the <span class="gradient-text">digital engine</span> behind your business
+          </h1>
+          <p class="hero__lead intro" style="--d: 700ms">
+            From AI automation to websites, mobile apps and cloud infrastructure — Qorvex designs,
+            builds and scales software that saves time, wins customers and drives growth.
+          </p>
+          <div class="hero__actions intro" style="--d: 850ms">
+            <a href="#contact" class="btn btn--primary btn--lg magnetic">Start Your Project</a>
+            <a href="#services" class="btn btn--ghost btn--lg magnetic">Explore Services</a>
+          </div>
+          <ul class="hero__points intro" style="--d: 1000ms">
+            <li>Free consultation</li>
+            <li>Transparent pricing</li>
+            <li>Post-launch support</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual intro intro--zoom" style="--d: 200ms" aria-hidden="true">
+          <canvas class="hero__canvas" id="hero3d"></canvas>
+          <div class="float-card float-card--a">
+            <strong>99.9%</strong><span>Uptime target</span>
+          </div>
+          <div class="float-card float-card--b">
+            <strong>AI</strong><span>Powered workflows</span>
+          </div>
+          <div class="float-card float-card--c">
+            <strong>6</strong><span>Core services</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">What we do</span>
+          <h2 class="section__title">Services built for real business results</h2>
+          <p class="section__lead">Six core capabilities, one team. Pick a single service or let us handle your complete digital journey.</p>
+        </div>
+
+        <div class="services">
+          <article class="service-card tilt reveal">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 1 3 3v1h1a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-1a3 3 0 0 1 0-6V9a3 3 0 0 1 3-3h1V5a3 3 0 0 1 3-3z"/><circle cx="9.5" cy="12.5" r="1.2"/><circle cx="14.5" cy="12.5" r="1.2"/><path d="M9.5 16.5h5"/></svg>
+            </div>
+            <h3>AI Automation</h3>
+            <p>Eliminate repetitive work with intelligent workflows, AI chatbots, document processing and smart integrations between your tools.</p>
+            <ul class="service-card__list">
+              <li>AI chatbots &amp; assistants</li>
+              <li>Workflow &amp; process automation</li>
+              <li>Data extraction &amp; reporting</li>
+            </ul>
+          </article>
+
+          <article class="service-card tilt reveal">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M2 8h20"/></svg>
+            </div>
+            <h3>Business Website Development</h3>
+            <p>Fast, modern, SEO-ready websites that build trust, tell your story and turn visitors into leads.</p>
+            <ul class="service-card__list">
+              <li>Custom responsive design</li>
+              <li>SEO &amp; performance optimized</li>
+              <li>Easy-to-manage CMS</li>
+            </ul>
+          </article>
+
+          <article class="service-card tilt reveal">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L21 8H6"/></svg>
+            </div>
+            <h3>E-Commerce Website</h3>
+            <p>High-converting online stores with secure payments, inventory management and a seamless shopping experience.</p>
+            <ul class="service-card__list">
+              <li>Shopify, WooCommerce &amp; custom</li>
+              <li>Payment gateway integration</li>
+              <li>Order &amp; inventory management</li>
+            </ul>
+          </article>
+
+          <article class="service-card tilt reveal">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M14 4l-4 16"/></svg>
+            </div>
+            <h3>Custom Software Development</h3>
+            <p>Tailor-made software — CRMs, ERPs, dashboards and portals — designed around the way your business actually works.</p>
+            <ul class="service-card__list">
+              <li>Web applications &amp; SaaS</li>
+              <li>CRM, ERP &amp; internal tools</li>
+              <li>API development &amp; integrations</li>
+            </ul>
+          </article>
+
+          <article class="service-card tilt reveal">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+            </div>
+            <h3>Mobile App Development</h3>
+            <p>Native and cross-platform apps for Android and iOS that your customers will love to use every day.</p>
+            <ul class="service-card__list">
+              <li>Android &amp; iOS apps</li>
+              <li>Flutter &amp; React Native</li>
+              <li>App Store &amp; Play Store launch</li>
+            </ul>
+          </article>
+
+          <article class="service-card tilt reveal">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24"><path d="M7 18a5 5 0 0 1-.6-9.96A6 6 0 0 1 18 7a4.5 4.5 0 0 1-.5 11H7z"/><path d="M12 11v6M9.5 13.5 12 11l2.5 2.5"/></svg>
+            </div>
+            <h3>Cloud &amp; Deployment Support</h3>
+            <p>Reliable, secure and scalable infrastructure on AWS, Azure or Google Cloud — with CI/CD, monitoring and ongoing support.</p>
+            <ul class="service-card__list">
+              <li>Cloud setup &amp; migration</li>
+              <li>CI/CD &amp; DevOps pipelines</li>
+              <li>Monitoring, backups &amp; security</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Qorvex -->
+    <section class="section section--alt" id="why">
+      <div class="container why">
+        <div class="why__intro reveal">
+          <span class="eyebrow">Why Qorvex</span>
+          <h2 class="section__title">A partner that thinks beyond the code</h2>
+          <p class="section__lead">We combine engineering depth with business understanding, so every product we ship solves a real problem and is built to grow with you.</p>
+          <a href="#contact" class="btn btn--primary">Talk to an Expert</a>
+        </div>
+        <div class="why__grid">
+          <div class="feature tilt reveal">
+            <h3>Business-first approach</h3>
+            <p>We start with your goals, customers and numbers — technology comes second.</p>
+          </div>
+          <div class="feature tilt reveal">
+            <h3>Modern tech stack</h3>
+            <p>Proven, future-ready tools that keep your product fast, secure and maintainable.</p>
+          </div>
+          <div class="feature tilt reveal">
+            <h3>Transparent delivery</h3>
+            <p>Clear milestones, regular demos and honest communication at every step.</p>
+          </div>
+          <div class="feature tilt reveal">
+            <h3>Long-term support</h3>
+            <p>We stay after launch with maintenance, improvements and scaling support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">How we work</span>
+          <h2 class="section__title">From idea to launch in four clear steps</h2>
+        </div>
+        <ol class="process">
+          <li class="process__step tilt reveal">
+            <span class="process__num">01</span>
+            <h3>Discover</h3>
+            <p>We understand your business, users and goals, then define scope, timeline and budget.</p>
+          </li>
+          <li class="process__step tilt reveal">
+            <span class="process__num">02</span>
+            <h3>Design</h3>
+            <p>Wireframes, UI design and technical architecture — reviewed and approved with you.</p>
+          </li>
+          <li class="process__step tilt reveal">
+            <span class="process__num">03</span>
+            <h3>Develop</h3>
+            <p>Agile sprints with regular demos, thorough testing and quality checks.</p>
+          </li>
+          <li class="process__step tilt reveal">
+            <span class="process__num">04</span>
+            <h3>Deploy &amp; Support</h3>
+            <p>Smooth launch on reliable cloud infrastructure, followed by ongoing care.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Tech -->
+    <section class="section section--alt" id="tech">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Technologies</span>
+          <h2 class="section__title">Tools we trust to build with</h2>
+        </div>
+        <div class="tech-ring reveal">
+          <ul class="tech-ring__track" id="techRing">
+            <li>React</li><li>Next.js</li><li>Node.js</li><li>Python</li><li>Django</li>
+            <li>Laravel</li><li>Flutter</li><li>React Native</li><li>Shopify</li><li>WordPress</li>
+            <li>OpenAI &amp; Claude</li><li>LangChain</li><li>PostgreSQL</li><li>MongoDB</li>
+            <li>AWS</li><li>Azure</li><li>Google Cloud</li><li>Docker</li><li>Kubernetes</li><li>GitHub Actions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container cta__inner tilt reveal">
+        <h2>Have an idea? Let's turn it into a product.</h2>
+        <p>Tell us what you need — we'll reply within one business day with a plan and estimate.</p>
+        <a href="#contact" class="btn btn--light btn--lg">Book a Free Consultation</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container contact">
+        <div class="contact__info reveal">
+          <span class="eyebrow">Contact us</span>
+          <h2 class="section__title">Let's build something great together</h2>
+          <p class="section__lead">Share a few details about your project and our team will get back to you shortly.</p>
+          <ul class="contact__list">
+            <li>
+              <span class="contact__label">Email</span>
+              <a href="mailto:enquiry.qorvex@gmail.com">enquiry.qorvex@gmail.com</a>
+            </li>
+            <li>
+              <span class="contact__label">Phone</span>
+              <a href="tel:+919080758687">+91 90807 58687</a>
+            </li>
+            <li>
+              <span class="contact__label">Office</span>
+              <span>Remote — serving clients worldwide</span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="form reveal" id="contactForm" novalidate>
+          <!-- Honeypot field: hidden from people, catches spam bots -->
+          <input type="text" name="_honey" class="form__honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form__row">
+            <div class="form__field">
+              <label for="name">Full name *</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="form__field">
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <div class="form__field">
+              <label for="service">Service *</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option>AI Automation</option>
+                <option>Business Website Development</option>
+                <option>E-Commerce Website</option>
+                <option>Custom Software Development</option>
+                <option>Mobile App Development</option>
+                <option>Cloud &amp; Deployment Support</option>
+                <option>Other / Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="message">Project details *</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project, goals and timeline..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg btn--block" id="submitBtn">Send Message</button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#home" class="logo">
+          <svg class="logo__mark" viewBox="0 0 100 100" aria-hidden="true">
+          <g fill="none" stroke-linecap="round">
+            <path d="M18.82 32.00A36 36 0 0 1 73.14 22.42" stroke="currentColor" stroke-width="10" />
+            <path d="M37.69 83.83A36 36 0 0 1 14.79 42.52" stroke="currentColor" stroke-width="10" />
+            <path d="M81.79 33.10A36 36 0 0 1 51.26 85.98" stroke="var(--brand)" stroke-width="10" />
+            <path d="M59.30 30.06A22 22 0 0 1 70.67 57.52" stroke="currentColor" stroke-width="5" />
+            <path d="M61.00 69.05A22 22 0 0 1 30.06 59.30" stroke="var(--brand)" stroke-width="5" />
+            <path d="M28.01 49.23A22 22 0 0 1 46.18 28.33" stroke="currentColor" stroke-width="5" />
+          </g>
+        </svg>
+        <span class="logo__text">Q<span class="logo__o">O</span>RVEX</span>
+        </a>
+        <p>AI, web, mobile and cloud solutions that help businesses work smarter and grow faster.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">AI Automation</a></li>
+          <li><a href="#services">Business Websites</a></li>
+          <li><a href="#services">E-Commerce</a></li>
+          <li><a href="#services">Custom Software</a></li>
+          <li><a href="#services">Mobile Apps</a></li>
+          <li><a href="#services">Cloud &amp; Deployment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#why">Why Qorvex</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#tech">Technologies</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:enquiry.qorvex@gmail.com">enquiry.qorvex@gmail.com</a></li>
+          <li><a href="tel:+919080758687">+91 90807 58687</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year"></span> Qorvex. All rights reserved.</p>
+      <a href="#home" class="to-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script type="module" src="assets/js/hero3d.js"></script>
+  <script type="module" src="assets/js/bg3d.js"></script>
+</body>
+</html>
