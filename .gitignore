@@ -4,3 +4,4 @@ _test.html
 _frame.html
 .DS_Store
 Thumbs.db
+.env*
