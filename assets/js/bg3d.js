@@ -1,4 +1,4 @@
-// Qorvex — page-wide 3D particle wave background (Three.js)
+// Qorvex — page-wide 3D particle wave background (Three.js), tuned for the light theme
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
 const canvas = document.getElementById('bg3d');
@@ -40,13 +40,12 @@ function init() {
   const material = new THREE.ShaderMaterial({
     transparent: true,
     depthWrite: false,
-    blending: THREE.AdditiveBlending,
     uniforms: {
       uTime: { value: 0 },
       uSize: { value: small ? 2.2 : 2.6 },
       uWidth: { value: COLS * GAP },
       uColorA: { value: new THREE.Color(0x2ec58f) },
-      uColorB: { value: new THREE.Color(0x22d3ee) },
+      uColorB: { value: new THREE.Color(0x0f9465) },
     },
     vertexShader: /* glsl */ `
       uniform float uTime;
@@ -80,8 +79,8 @@ function init() {
         if (d > 0.5) discard;
         vec3 color = mix(uColorA, uColorB, clamp(vX / uWidth + 0.5, 0.0, 1.0));
         float fade = smoothstep(32.0, 6.0, vDepth);
-        float glow = 0.35 + 0.65 * clamp((vElev + 1.5) / 3.0, 0.0, 1.0);
-        gl_FragColor = vec4(color, fade * glow * (1.0 - d * 2.0));
+        float glow = 0.3 + 0.7 * clamp((vElev + 1.3) / 2.6, 0.0, 1.0);
+        gl_FragColor = vec4(color, fade * glow * 0.55 * (1.0 - d * 2.0));
       }
     `,
   });

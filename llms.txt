@@ -1,0 +1,49 @@
+# Qorvex
+
+> Qorvex is an AI automation and software development company based in India that works remotely with startups and growing businesses worldwide. One team handles strategy, design, development and cloud deployment, end to end.
+
+## Services
+
+- **AI Automation**: AI chatbots and assistants, workflow and process automation, data extraction and reporting.
+- **Business Website Development**: custom responsive websites that are SEO and performance optimized, with an easy-to-manage CMS.
+- **E-Commerce Website Development**: Shopify, WooCommerce and custom online stores, payment gateway integration, order and inventory management.
+- **Custom Software Development**: web applications and SaaS, CRM, ERP and internal tools, API development and integrations.
+- **Mobile App Development**: Android and iOS apps with Flutter and React Native, including App Store and Play Store launch.
+- **Cloud & Deployment Support**: cloud setup and migration on AWS, Azure and Google Cloud, CI/CD and DevOps pipelines, monitoring, backups and security.
+
+## Industries served
+
+Retail and e-commerce, healthcare, education, real estate, logistics, finance, manufacturing, and startups.
+
+## How Qorvex works
+
+1. Discover: understand the business, users and goals; define scope, timeline and budget.
+2. Design: wireframes, UI design and technical architecture, reviewed and approved with the client.
+3. Develop: agile sprints with regular demos, testing and quality checks.
+4. Deploy & Support: launch on cloud infrastructure, followed by ongoing maintenance.
+
+## Engagement models
+
+- **Fixed-Scope Project**: clear scope, timeline and price upfront; best for websites, stores and well-defined products.
+- **Dedicated Team**: developers, designers and cloud experts working as an extension of the client's team; scale monthly.
+- **Support & Maintenance**: updates, fixes, security patches, monitoring and backups.
+
+## Key facts
+
+- Pricing: quoted per project after a short discovery call, with an itemised estimate before work begins.
+- Ownership: after delivery and full payment, clients own their source code, designs, domains and accounts.
+- Location: remote, India; serves clients worldwide.
+- Technologies: React, Next.js, Node.js, Python, Django, Laravel, Flutter, React Native, Shopify, WordPress, OpenAI and Claude, LangChain, PostgreSQL, MongoDB, AWS, Azure, Google Cloud, Docker, Kubernetes, GitHub Actions.
+
+## Contact
+
+- Email: enquiry.qorvex@gmail.com
+- Phone: +91 63792 54643
+- Website: https://qorvex-tau.vercel.app/
+- Enquiry form: https://qorvex-tau.vercel.app/#contact
+
+## Pages
+
+- [Home](https://qorvex-tau.vercel.app/): services, industries, process, engagement models, FAQ and contact form
+- [Privacy Policy](https://qorvex-tau.vercel.app/privacy.html): how enquiry data is collected, used and protected
+- [Terms & Conditions](https://qorvex-tau.vercel.app/terms.html): terms for using the website and engaging Qorvex

@@ -258,5 +258,22 @@
 
   form.addEventListener('input', (e) => e.target.classList.remove('is-invalid'));
 
+  // "Discuss this project" links pre-select the matching service in the form
+  const serviceSelect = form.elements.service;
+  document.querySelectorAll('[data-service]').forEach((link) => {
+    link.addEventListener('click', () => {
+      serviceSelect.value = link.dataset.service;
+      serviceSelect.classList.remove('is-invalid');
+    });
+  });
+
+  // FAQ — keep one answer open at a time
+  const faqItems = [...document.querySelectorAll('.faq__item')];
+  faqItems.forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (item.open) faqItems.forEach((other) => { if (other !== item) other.open = false; });
+    });
+  });
+
   document.getElementById('year').textContent = new Date().getFullYear();
 })();

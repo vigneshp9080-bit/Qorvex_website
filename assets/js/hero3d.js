@@ -1,4 +1,5 @@
-// Qorvex — interactive 3D hero scene (Three.js)
+// Qorvex — interactive 3D hero scene (Three.js), styled after the logo:
+// porcelain core, ink and green orbit rings.
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
 const canvas = document.getElementById('hero3d');
@@ -12,7 +13,7 @@ function init() {
   try {
     renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   } catch (err) {
-    return; // No WebGL — the CSS glow and grid still give the hero depth.
+    return; // No WebGL — the CSS pattern and glow still give the hero depth.
   }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setClearColor(0x000000, 0);
@@ -23,67 +24,68 @@ function init() {
   camera.position.set(0, 0, baseZ);
 
   const GREEN = 0x2ec58f;
-  const CYAN = 0x22d3ee;
+  const GREEN_DARK = 0x0f9465;
+  const INK = 0x111318;
 
   // Lights
-  scene.add(new THREE.AmbientLight(0xffffff, 0.35));
-  const lightA = new THREE.PointLight(GREEN, 60, 30);
-  lightA.position.set(-4, 3, 4);
-  const lightB = new THREE.PointLight(CYAN, 60, 30);
-  lightB.position.set(4, -2, 4);
-  scene.add(lightA, lightB);
+  scene.add(new THREE.AmbientLight(0xffffff, 1.1));
+  const key = new THREE.DirectionalLight(0xffffff, 2.2);
+  key.position.set(-4, 5, 6);
+  const rim = new THREE.PointLight(GREEN, 40, 20);
+  rim.position.set(4, -2, 3);
+  scene.add(key, rim);
 
   const world = new THREE.Group();
   scene.add(world);
 
-  // Faceted core
+  // Faceted porcelain core
   const core = new THREE.Mesh(
     new THREE.IcosahedronGeometry(1.45, 1),
-    new THREE.MeshStandardMaterial({ color: 0x14241f, metalness: 0.85, roughness: 0.25, flatShading: true })
+    new THREE.MeshStandardMaterial({ color: 0xf7f6f1, metalness: 0.08, roughness: 0.38, flatShading: true })
   );
   world.add(core);
 
-  // Wireframe shell
+  // Ink wireframe shell
   const shell = new THREE.LineSegments(
     new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(2.05, 1)),
-    new THREE.LineBasicMaterial({ color: CYAN, transparent: true, opacity: 0.35 })
+    new THREE.LineBasicMaterial({ color: INK, transparent: true, opacity: 0.22 })
   );
   world.add(shell);
 
-  // Glowing vertices on the shell
+  // Green nodes on the shell
   const nodes = new THREE.Points(
     new THREE.IcosahedronGeometry(2.05, 1),
-    new THREE.PointsMaterial({ color: 0xffffff, size: 0.07, transparent: true, opacity: 0.9 })
+    new THREE.PointsMaterial({ color: GREEN_DARK, size: 0.085 })
   );
   world.add(nodes);
 
-  // Orbit rings
+  // Orbit rings — ink and green, like the logo
   const ringMat = (color, opacity) => new THREE.MeshBasicMaterial({ color, transparent: true, opacity });
-  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(2.8, 0.015, 8, 160), ringMat(GREEN, 0.8));
+  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(2.8, 0.035, 12, 180), ringMat(INK, 0.9));
   ring1.rotation.set(Math.PI / 2.4, 0.3, 0);
-  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.012, 8, 160), ringMat(CYAN, 0.6));
+  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.03, 12, 180), ringMat(GREEN, 0.95));
   ring2.rotation.set(Math.PI / 1.8, -0.5, 0.4);
   world.add(ring1, ring2);
 
   // Satellites travelling along the rings
-  const satGeo = new THREE.SphereGeometry(0.09, 16, 16);
+  const satGeo = new THREE.SphereGeometry(0.11, 20, 20);
   const sat1 = new THREE.Mesh(satGeo, new THREE.MeshBasicMaterial({ color: GREEN }));
-  const sat2 = new THREE.Mesh(satGeo, new THREE.MeshBasicMaterial({ color: CYAN }));
+  const sat2 = new THREE.Mesh(satGeo, new THREE.MeshBasicMaterial({ color: INK }));
   ring1.add(sat1);
   ring2.add(sat2);
 
   // Small floating shapes orbiting the core
   const shapeDefs = [
     { geo: new THREE.OctahedronGeometry(0.28), color: GREEN, pos: [-3.1, 1.6, 0.5] },
-    { geo: new THREE.TetrahedronGeometry(0.3), color: CYAN, pos: [3.0, 1.9, -0.6] },
-    { geo: new THREE.TorusGeometry(0.22, 0.07, 12, 32), color: GREEN, pos: [2.7, -2.0, 0.8] },
-    { geo: new THREE.BoxGeometry(0.34, 0.34, 0.34), color: CYAN, pos: [-2.6, -2.1, -0.4] },
+    { geo: new THREE.TetrahedronGeometry(0.3), color: INK, pos: [3.0, 1.9, -0.6] },
+    { geo: new THREE.TorusGeometry(0.22, 0.08, 12, 32), color: GREEN, pos: [2.7, -2.0, 0.8] },
+    { geo: new THREE.BoxGeometry(0.32, 0.32, 0.32), color: INK, pos: [-2.6, -2.1, -0.4] },
     { geo: new THREE.IcosahedronGeometry(0.22, 0), color: 0xffffff, pos: [0.4, 3.0, -1.2] },
   ];
   const shapes = shapeDefs.map(({ geo, color, pos }, i) => {
     const mesh = new THREE.Mesh(
       geo,
-      new THREE.MeshStandardMaterial({ color, metalness: 0.6, roughness: 0.3, flatShading: true, emissive: color, emissiveIntensity: 0.25 })
+      new THREE.MeshStandardMaterial({ color, metalness: 0.2, roughness: 0.4, flatShading: true })
     );
     mesh.position.set(...pos);
     mesh.userData = { base: new THREE.Vector3(...pos), phase: i * 1.3, spin: 0.4 + i * 0.15 };
@@ -92,7 +94,7 @@ function init() {
   });
 
   // Particle field
-  const COUNT = 900;
+  const COUNT = 700;
   const positions = new Float32Array(COUNT * 3);
   for (let i = 0; i < COUNT; i++) {
     const r = 3.6 + Math.random() * 3.5;
@@ -106,7 +108,7 @@ function init() {
   particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
   const particles = new THREE.Points(
     particleGeo,
-    new THREE.PointsMaterial({ color: 0x9ee6cc, size: 0.03, transparent: true, opacity: 0.7 })
+    new THREE.PointsMaterial({ color: 0x5b616d, size: 0.03, transparent: true, opacity: 0.45 })
   );
   scene.add(particles);
 
@@ -157,7 +159,6 @@ function init() {
 
     core.rotation.x = t * 0.25;
     core.rotation.y = t * 0.35;
-    core.scale.setScalar(1 + Math.sin(t * 2) * 0.03);
     shell.rotation.y = nodes.rotation.y = -t * 0.15;
     shell.rotation.x = nodes.rotation.x = t * 0.08;
     ring1.rotation.z = t * 0.3;
@@ -168,7 +169,7 @@ function init() {
     // Particles start scattered and converge during the intro
     particles.rotation.y = t * 0.03;
     particles.scale.setScalar(1 + (1 - intro) * 2.5);
-    particles.material.opacity = 0.7 * intro;
+    particles.material.opacity = 0.45 * intro;
 
     // Core spins in from far away, then follows the pointer and scroll
     world.scale.setScalar(0.15 + 0.85 * intro);
